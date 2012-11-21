@@ -1,0 +1,21 @@
+Here's an example of how to setup a basic ruby chatroom.  It really only works between 2 people in it's current state, and requires a different approach to add more members (for security reasons).  
+
+
+1)  Start the Faye server  `ruby faye_server.rb`
+
+2)  Start a web server in the public directory `cd public;python -m SimpleHTTPServer`
+
+3)  Open an admin... localhost:8000/admin_chat_interface.html in a web browser to act as admin
+
+4)  Open a client... localhost:8000/admin_chat_interface.html in web browser, and click the 'Become CLient' button.  
+
+The two web pages can now chat with each other using the online interface.  Note that they're relying on communications over port 10614.  
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>admin chat interface</title>
+		<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+		<link href="/stylesheets/chat.css" rel="stylesheet" media="screen">
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+		<script src="/bootstrap/js/bootstrap.min.js"></script>
+		<script src="/javascripts/jquery.base64.min.js"></script>
+		<script src="/javascripts/jquery.cookie.js"></script>
+		<script type="text/javascript" src="/faye/client.js"></script>
+		
+		<!-- <script src="/javascripts/chat.js"></script> -->
+		<script type="text/javascript" src="/javascripts/faye-chat/faye-chat.js"></script>
+		
+		
+		<script src="http://jquery-ui.googlecode.com/svn/tags/latest/ui/jquery.effects.core.js"></script>
+		<script src="http://jquery-ui.googlecode.com/svn/tags/latest/ui/jquery.effects.slide.js"></script>
+	</head>
+	
+	<body>
+		<h1>Real Time Chat</h1>
+		<ul class="nav nav-tabs chat-tabs">
+			<li class="active">
+				<a href="#" onclick="javascript:adminChat.switchRoom(this);" data-room_hash='lkasjdA'>
+					Sally <span class="badge badge-important hidden">0</span>
+				</a>
+			</li>
+			<li>
+				<a href="#" onclick="javascript:adminChat.switchRoom(this);" data-room_hash='lkasjdB'>
+					Susan <span class="badge badge-important">6</span>
+				</a>
+			</li>
+			<li>
+				<a href="#" onclick="javascript:adminChat.switchRoom(this);" data-room_hash='lkasjdC'>
+					Chris  <span class="badge badge-important hidden">0</span>
+				</a>
+			</li>
+		</ul>
+		
+		
+		<div class='chatroom-encapsulator'>
+			
+			<div class='chatEncapsulator adminChat chatShowing' data-room_hash='lkasjdA'>
+				<div class='chat-msgs'>
+					<p><span class='chat-prefix'>You:  </span> Whatsup!  This is room A</p>
+				</div>
+				<div class="chatConsole">
+					<div class="user-is-typing hidden">User Is Typing...</div>
+					<textarea class="real_time_interaction_msg" name="real_time_interaction[msg]" onkeyup="handleKeyUp(event, this)" onkeydown="adminChat.handleKeyDown(event,this)"></textarea>
+					<button class='btn-custom btn-send' onclick='adminChat.submitMessage(this)'>Submit <br>(ctrl+enter)</button>
+				</div>
+			</div>
+			
+			<div class='chatEncapsulator adminChat' data-room_hash='lkasjdB'>
+				<div class='chat-msgs'>
+					<p><span class='chat-prefix'>You:  </span> Hi!  This is room B</p>
+				</div>
+				
+			</div>
+			
+			<div class='chatEncapsulator adminChat' data-room_hash='lkasjdC'>
+				<div class='chat-msgs'>
+					<p><span class='chat-prefix'>You:  </span> Hello!  This is room C</p>
+				</div>
+			</div>
+			
+		</div>
+		<a href="#" onclick="myRole = 'client'; myName = 'Sally';">Become Client</a>
+	</body>
+</html>
